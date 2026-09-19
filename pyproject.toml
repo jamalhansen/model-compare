@@ -1,0 +1,33 @@
+[project]
+name = "model-compare"
+version = "0.1.0"
+description = "Ask multiple LLM providers the same prompt concurrently via llm-gateway-service and show their answers side by side."
+requires-python = ">=3.12"
+dependencies = [
+    "typer>=0.15.0",
+    "click<8.3.2",  # 8.3.2 breaks typer 0.24.1's option parsing: AttributeError 'bool' object has no attribute 'isidentifier'. Unpin once a compatible typer release lands.
+    "rich>=14.3.3",
+    "local-first-common",
+]
+
+[project.scripts]
+model-compare = "model_compare.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/model_compare"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-cov>=6.0.0",
+]
+
+[tool.uv.sources]
+local-first-common = { git = "https://github.com/jamalhansen/local-first-common.git", branch = "main" }
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
