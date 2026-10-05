@@ -7,6 +7,7 @@ shape (one model at a time, many items) from "ask N models the same thing
 right now and see all the answers." This is the small tool that shape
 actually wants.
 """
+
 from __future__ import annotations
 
 import os

@@ -16,7 +16,13 @@ class TestCli:
         fake_result = CompareResult(
             trace_id="abc-123",
             results=[
-                {"provider": "anthropic", "model": "claude-haiku", "text": "hi there", "error": None, "duration_ms": 100},
+                {
+                    "provider": "anthropic",
+                    "model": "claude-haiku",
+                    "text": "hi there",
+                    "error": None,
+                    "duration_ms": 100,
+                },
                 {"provider": "ollama", "model": "llama3.2:3b", "text": None, "error": "boom", "duration_ms": 50},
             ],
         )

@@ -36,7 +36,9 @@ class TestRunCompare:
             200,
             {
                 "trace_id": "abc-123",
-                "results": [{"provider": "anthropic", "model": "claude-haiku", "text": "hi", "error": None, "duration_ms": 100}],
+                "results": [
+                    {"provider": "anthropic", "model": "claude-haiku", "text": "hi", "error": None, "duration_ms": 100}
+                ],
             },
         )
         with patch("httpx.post", return_value=response) as mock_post:
